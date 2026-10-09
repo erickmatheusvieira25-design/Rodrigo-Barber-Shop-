@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="RG Rodrigo Gomes Barber Shop, em Jaraguá, Goiás. Estilo, cuidado e atendimento de qualidade.">
+
+    <title>RG Rodrigo Gomes | Barber Shop</title>
+
+    <style>
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        :root {
+            --preto: #080808;
+            --preto-suave: #111111;
+            --dourado: #d8a640;
+            --dourado-claro: #ffe2a0;
+            --branco: #f5f1e8;
+            --cinza: #b9b5ac;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--preto);
+            color: var(--branco);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        /* =========================
+           CABEÇALHO E MENU
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+
+            background: rgba(8, 8, 8, 0.94);
+
+            border-bottom: 1px solid rgba(216, 166, 64, 0.35);
+
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            min-height: 76px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .logo {
+            font-weight: 900;
+            letter-spacing: 2px;
+
+            color: var(--dourado);
+
+            font-size: 1.15rem;
+        }
+
+        .logo span {
+            color: var(--branco);
+        }
+
+        .links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            font-size: 0.9rem;
+            color: var(--branco);
+
+            transition: color 0.2s;
+        }
+
+        .links a:hover {
+            color: var(--dourado-claro);
+        }
+
+        /* =========================
+           PÁGINA INICIAL
+        ========================= */
+
+        .hero {
+            min-height: 84vh;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+
+            align-items: center;
+            gap: 48px;
+
+            padding: 64px 0;
+        }
+
+        .eyebrow {
+            color: var(--dourado);
+
+            text-transform: uppercase;
+            letter-spacing: 4px;
+
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(2.7rem, 6vw, 5.5rem);
+
+            line-height: 0.98;
+
+            margin: 18px 0 24px;
+        }
+
+        h1 span,
+        h2 span {
+            color: var(--dourado);
+        }
+
+        .hero p {
+            color: var(--cinza);
+
+            max-width: 570px;
+
+            font-size: 1.08rem;
+        }
+
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 21px;
+
+            border-radius: 4px;
+
+            border: 1px solid var(--dourado);
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .button.primary {
+            color: #080808;
+            background: var(--dourado);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 24px #d8a64022;
+        }
+
+        /* =========================
+           FOTO DO RODRIGO
+        ========================= */
+
+        .photo-frame {
+            position: relative;
+        }
+
+        .photo-frame::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 18px -14px -14px 18px;
+
+            border: 2px solid var(--dourado);
+
+            z-index: 0;
+
+            border-radius: 8px;
+        }
+
+        .photo-frame img {
+            position: relative;
+            z-index: 1;
+
+            display: block;
+
+            width: 100%;
+            max-height: 600px;
+
+            object-fit: cover;
+            object-position: center;
+
+            border-radius: 8px;
+
+            border: 1px solid #333;
+        }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            padding: 88px 0;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 42px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+
+            line-height: 1.1;
+
+            margin: 12px 0;
+        }
+
+        .section-title p {
+            color: var(--cinza);
+
+            max-width: 680px;
+
+            margin: 12px auto 0;
+        }
+
+        /* =========================
+           SOBRE A BARBEARIA
+        ========================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 40px;
+
+            align-items: center;
+        }
+
+        .about-copy p {
+            color: var(--cinza);
+
+            margin: 0 0 16px;
+        }
+
+        .highlight {
+            color: var(--dourado-claro);
+
+            font-weight: bold;
+        }
+
+        /* =========================
+           CARDS E DIFERENCIAIS
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .card {
+            background: linear-gradient(
+                145deg,
+                #151515,
+                #0b0b0b
+            );
+
+            padding: 28px;
+
+            border: 1px solid #332817;
+
+            border-radius: 8px;
+        }
+
+        .card .number {
+            color: var(--dourado);
+
+            font-size: 1.7rem;
+
+            font-weight: 900;
+        }
+
+        .card h3 {
+            color: var(--dourado-claro);
+
+            margin: 12px 0 8px;
+        }
+
+        .card p {
+            color: var(--cinza);
+        }
+
+        /* =========================
+           HORÁRIOS
+        ========================= */
+
+        .hours {
+            text-align: center;
+
+            background: var(--preto-suave);
+
+            border-top: 1px solid #302514;
+            border-bottom: 1px solid #302514;
+        }
+
+        .hours-box {
+            max-width: 650px;
+
+            margin: auto;
+
+            border: 1px solid #4c391b;
+
+            padding: 30px;
+
+            border-radius: 8px;
+        }
+
+        .hours-box strong {
+            color: var(--dourado-claro);
+        }
+
+        /* =========================
+           CONTATO
+        ========================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: var(--cinza);
+
+            max-width: 650px;
+
+            margin: 0 auto 20px;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            padding: 24px 0;
+
+            border-top: 1px solid #302514;
+
+            text-align: center;
+
+            color: #8e887d;
+
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           RESPONSIVIDADE
+           CELULARES E TABLETS
+        ========================= */
+
+        @media (max-width: 760px) {
+
+            nav {
+                padding: 16px 0;
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .links {
+                gap: 14px;
+            }
+
+            .hero,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 42px;
+
+                gap: 36px;
+            }
+
+            .photo-frame {
+                width: calc(100% - 14px);
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 64px 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         CABEÇALHO
+    ========================= -->
+
+    <header>
+
+        <nav class="container">
+
+            <a class="logo" href="#inicio">
+                RG <span>BARBER SHOP</span>
+            </a>
+
+            <div class="links">
+
+                <a href="#sobre">Sobre</a>
+
+                <a href="#diferenciais">Diferenciais</a>
+
+                <a href="#horarios">Horários</a>
+
+                <a href="#contato">Contato</a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             INÍCIO
+        ========================= -->
+
+        <section class="container hero" id="inicio">
+
+            <div>
+
+                <div class="eyebrow">
+                    Jaraguá • Goiás
+                </div>
+
+                <h1>
+                    Estilo que marca.
+                    <br>
+                    <span>Atendimento de verdade.</span>
+                </h1>
+
+                <p>
+                    Seja bem-vindo à
+                    <strong>RG Rodrigo Gomes Barber Shop</strong>,
+                    uma barbearia feita para quem valoriza um bom corte,
+                    atenção aos detalhes e um ambiente onde cada cliente
+                    é recebido com respeito e carisma.
+                </p>
+
+                <div class="buttons">
+
+                    <a class="button primary" href="#contato">
+                        Conheça a barbearia
+                    </a>
+
+                    <a class="button" href="#planos">
+                        Ver planos
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="photo-frame">
+
+                <img
+                    src="Rodrigo.jpg"
+                    alt="Rodrigo, barbeiro da RG Rodrigo Gomes Barber Shop"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOBRE A BARBEARIA
+        ========================= -->
+
+        <section id="sobre">
+
+            <div class="container about-grid">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Nossa história
+                    </div>
+
+                    <h2>
+                        Mais que um corte,
+                        <br>
+                        <span>uma experiência.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="about-copy">
+
+                    <p>
+                        Conhecida em
+                        <span class="highlight">
+                            Jaraguá, Goiás
+                        </span>,
+                        a RG Rodrigo Gomes Barber Shop tem como destaque
+                        o trabalho e a personalidade de Rodrigo.
+                        Seu carisma, sua conversa descontraída e seu jeito
+                        atencioso de receber cada pessoa ajudam a tornar
+                        a visita à barbearia um momento especial.
+                    </p>
+
+                    <p>
+                        O objetivo é oferecer cortes bem-feitos,
+                        cuidado e uma experiência agradável,
+                        valorizando o estilo de cada cliente.
+                        Mais do que cortar cabelo, Rodrigo busca
+                        construir uma relação de confiança com quem
+                        passa pela cadeira da barbearia.
+                    </p>
+
+                    <p>
+                        <em>
+                            Seu estilo, sua identidade.
+                            O cuidado está em cada detalhe.
+                        </em>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DIFERENCIAIS
+        ========================= -->
+
+        <section
+            id="diferenciais"
+            style="background:#0d0d0d"
+        >
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <div class="eyebrow">
+                        Por que escolher a RG?
+                    </div>
+
+                    <h2>
+                        Um atendimento
+                        <span>que faz a diferença</span>
+                    </h2>
+
+                    <p>
+                        O cuidado com o cliente está no centro
+                        de cada visita.
+                    </p>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <article class="card">
+
+                        <div class="number">
+                            01
+                        </div>
+
+                        <h3>
+                            Carisma e atenção
+                        </h3>
+
+                        <p>
+                            Um atendimento próximo e descontraído,
+                            com respeito e atenção ao que cada
+                            cliente deseja.
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="number">
+                            02
+                        </div>
+
+                        <h3>
+                            Estilo personalizado
+                        </h3>
+
+                        <p>
+                            Cortes pensados para combinar com
+                            a preferência, o visual e a personalidade
+                            de cada pessoa.
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="number">
+                            03
+                        </div>
+
+                        <h3>
+                            Planos para clientes
+                        </h3>
+
+                        <p>
+                            Opções de planos de cortes para quem
+                            deseja manter o visual em dia.
+                            Consulte as condições e os valores
+                            atualizados.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PLANOS DE CORTES
+        ========================= -->
+
+        <section id="planos">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <div class="eyebrow">
+                        Cuide do seu visual
+                    </div>
+
+                    <h2>
+                        Planos de
+                        <span>cortes</span>
+                    </h2>
+
+                    <p>
+                        A barbearia trabalha com opções de planos
+                        que podem variar conforme a quantidade
+                        de cortes e as condições combinadas.
+                    </p>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <article class="card">
+
+                        <div class="number">
+                            4x
+                        </div>
+
+                        <h3>
+                            Plano de 4 cortes
+                        </h3>
+
+                        <p>
+                            Uma opção para manter o corte em dia.
+                            Consulte Rodrigo para saber o valor
+                            e as condições disponíveis.
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="number">
+                            5x
+                        </div>
+
+                        <h3>
+                            Plano de 5 cortes
+                        </h3>
+
+                        <p>
+                            Mais praticidade para organizar
+                            seus cortes.
+                            Consulte os valores atualizados
+                            diretamente na barbearia.
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="number">
+                            Sob consulta
+                        </div>
+
+                        <h3>
+                            Valores personalizados
+                        </h3>
+
+                        <p>
+                            Os preços podem variar.
+                            Entre em contato para confirmar
+                            qual plano combina melhor com você.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HORÁRIOS DE ATENDIMENTO
+        ========================= -->
+
+        <section class="hours" id="horarios">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <div class="eyebrow">
+                        Organize sua visita
+                    </div>
+
+                    <h2>
+                        Horário de
+                        <span>atendimento</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="hours-box">
+
+                    <p>
+                        <strong>
+                            Segunda-feira a sábado
+                        </strong>
+                    </p>
+
+                    <p>
+                        Rodrigo atende de segunda a sábado.
+                    </p>
+
+                    <p
+                        style="margin-top:12px;color:#b9b5ac"
+                    >
+                        Para confirmar o horário disponível
+                        e combinar seu corte, entre em contato
+                        com a barbearia.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTATO
+        ========================= -->
+
+        <section class="contact" id="contato">
+
+            <div class="container">
+
+                <div class="eyebrow">
+                    Vamos renovar o visual?
+                </div>
+
+                <h2>
+                    Seu próximo corte é
+                    <span>aqui.</span>
+                </h2>
+
+                <p>
+                    Visite a RG Rodrigo Gomes Barber Shop
+                    em Jaraguá, Goiás, e conheça de perto
+                    o atendimento do Rodrigo.
+                </p>
+
+
+                <p>
+
+                    <strong style="color:#ffe2a0">
+                        WhatsApp:
+                    </strong>
+
+                    (62) 9 9476-5653
+
+                    <br>
+
+                    <strong style="color:#ffe2a0">
+                        Instagram:
+                    </strong>
+
+                    @rodrigobarbershop_
+
+                </p>
+
+
+                <div
+                    class="buttons"
+                    style="justify-content:center"
+                >
+
+                    <a
+                        class="button primary"
+                        href="https://wa.me/556294765653"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Falar pelo WhatsApp
+                    </a>
+
+
+                    <a
+                        class="button"
+                        href="https://www.instagram.com/rodrigobarbershop_/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
+
+    <footer>
+
+        <div class="container">
+
+            © <span id="ano"></span>
+            RG Rodrigo Gomes Barber Shop
+            • Jaraguá, Goiás
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ATUALIZA O ANO AUTOMATICAMENTE
+    ========================= -->
+
+    <script>
+
+        document.getElementById("ano").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+
+</html>
